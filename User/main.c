@@ -37,6 +37,9 @@ PID_t AnglePID = {
 	
 	.OutMax = 100,
 	.OutMin = -100,
+	
+	.ErrorIntMax = 600,
+	.ErrorIntMin = -600,
 };
 
 PID_t SpeedPID = {
@@ -46,6 +49,9 @@ PID_t SpeedPID = {
 	
 	.OutMax = 20,
 	.OutMin = -20,
+	
+	.ErrorIntMax = 150,
+	.ErrorIntMin = -150,
 };
 
 PID_t TurnPID = {
@@ -55,6 +61,9 @@ PID_t TurnPID = {
 	
 	.OutMax = 50,
 	.OutMin = -50,
+	
+	.ErrorIntMax = 20,
+	.ErrorIntMin = -20,
 };
 
 int main(void)

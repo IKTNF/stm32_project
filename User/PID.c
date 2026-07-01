@@ -9,6 +9,7 @@ void PID_Init(PID_t *p)
 	p->Error0 = 0;
 	p->Error1 = 0;
 	p->ErrorInt = 0;
+	p->Actual1 = 0;
 }
 
 void PID_Update(PID_t *p)
@@ -50,8 +51,10 @@ void PID_Angle(PID_t *p)
 	{
 		p->Out = p->Kp * p->Error0
 		   + p->Ki * p->ErrorInt
-		   + p->Kd * (p->Error0 - p->Error1);
+		   - p->Kd * (p->Actual - p->Actual1);
 	}
 	if (p->Out > p->OutMax) {p->Out = p->OutMax;}
 	if (p->Out < p->OutMin) {p->Out = p->OutMin;}
+	
+	p->Actual1 = p->Actual;
 }
